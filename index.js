@@ -4,23 +4,21 @@ const outputSymbolElement = document.getElementById("output-symbol");
 const outputAmountElement = document.getElementById("output-amount");
 const outputResultElement = document.getElementById("output-result");
 
-const dataSymbolRates = [
-  { symbol: "USD/IDR", rate: 15_095 },
-  { symbol: "IDR/USD", rate: 0.0000662471 },
-];
+async function convertCurrency({ amount, symbol }) {
+  const symbolFrom = symbol.substring(0, 3);
+  const symbolTo = symbol.substring(symbol.length - 3);
 
-function convertCurrency({ amount, symbol }) {
-  // const symbolFrom = symbol.substring(0, 3);
-  // const symbolTo = symbol.substring(symbol.length - 3);
+  const url = `https://api.exchangerate.host/convert?from=${symbolFrom}&to=${symbolTo}`;
+  const response = await fetch(url);
+  const data = await response.json();
 
-  const symbolRate = dataSymbolRates.find((symbolRate) => {
-    return symbol === symbolRate.symbol;
-  });
+  const result = amount * data.result;
+  const resultFixed = Number.parseFloat(result).toFixed(2);
 
-  return amount * symbolRate.rate;
+  return resultFixed;
 }
 
-formConvertElement.addEventListener("submit", (event) => {
+formConvertElement.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const formData = new FormData(formConvertElement);
@@ -30,7 +28,7 @@ formConvertElement.addEventListener("submit", (event) => {
   const to = formData.get("to");
   const symbol = `${from}/${to}`;
 
-  const result = convertCurrency({ amount, symbol });
+  const result = await convertCurrency({ amount, symbol });
 
   outputSymbolElement.innerHTML = symbol;
   outputAmountElement.innerHTML = amount;
