@@ -25,8 +25,11 @@ formConvertElement.addEventListener("submit", (event) => {
 
   const formData = new FormData(formConvertElement);
 
-  const symbol = "USD/IDR"; // from select option
   const amount = Number(formData.get("amount"));
+  const from = formData.get("from");
+  const to = formData.get("to");
+  const symbol = `${from}/${to}`;
+
   const result = convertCurrency({ amount, symbol });
 
   outputSymbolElement.innerHTML = symbol;
