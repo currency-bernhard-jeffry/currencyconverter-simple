@@ -1,13 +1,23 @@
 const formConvertElement = document.getElementById("form-converter");
+
+const outputSymbolElement = document.getElementById("output-symbol");
 const outputAmountElement = document.getElementById("output-amount");
 const outputResultElement = document.getElementById("output-result");
 
-function convertCurrency(amount) {
-  const exchangeRate = 15_000; // get from actual data/array
+const dataSymbolRates = [
+  { symbol: "USD/IDR", rate: 15_095 },
+  { symbol: "IDR/USD", rate: 0.0000662471 },
+];
 
-  const result = amount * exchangeRate;
+function convertCurrency({ amount, symbol }) {
+  // const symbolFrom = symbol.substring(0, 3);
+  // const symbolTo = symbol.substring(symbol.length - 3);
 
-  return result;
+  const symbolRate = dataSymbolRates.find((symbolRate) => {
+    return symbol === symbolRate.symbol;
+  });
+
+  return amount * symbolRate.rate;
 }
 
 formConvertElement.addEventListener("submit", (event) => {
@@ -15,9 +25,11 @@ formConvertElement.addEventListener("submit", (event) => {
 
   const formData = new FormData(formConvertElement);
 
+  const symbol = "USD/IDR"; // from select option
   const amount = Number(formData.get("amount"));
-  const result = convertCurrency(amount);
+  const result = convertCurrency({ amount, symbol });
 
+  outputSymbolElement.innerHTML = symbol;
   outputAmountElement.innerHTML = amount;
   outputResultElement.innerHTML = result;
 });
