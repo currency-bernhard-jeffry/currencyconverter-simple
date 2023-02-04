@@ -6,17 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Currency Converter</title>
   </head>
-  <body>
+  <body style="font-family: sans-serif">
     <main>
       <form id="form-converter">
-        <div>
+        <fieldset>
           <label for="currency-amount">Currency Amount:</label>
           <input type="number" id="currency-amount" name="amount" step="0.01" />
-        </div>
-        <div>
-          <button type="submit">Convert</button>
-        </div>
+        </fieldset>
+        <button type="submit">Convert</button>
       </form>
+
+      <section id="output">
+        <p>
+          <span id="output-amount">0</span>
+          <span>USD</span>
+        </p>
+        <p>
+          <span id="output-result">0</span>
+          <span>IDR</span>
+        </p>
+      </section>
     </main>
 
     <script src="index.js"></script>
