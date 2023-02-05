@@ -13,3 +13,5 @@ when submit button clicked:
 - what has been entered at input field saved into a variable
 - multiply the variable with the rate
 - show the output in the output section of the DOM
+
+add async funtion to get api:
