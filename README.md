@@ -15,3 +15,7 @@ when submit button clicked:
 - show the output in the output section of the DOM
 
 add async funtion to get api:
+
+- get the rate by using live rate (create fetch function)
+- filter the data gotten from the api to get the live rate
+- pass the rate to the EventListener
