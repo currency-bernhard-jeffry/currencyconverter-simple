@@ -1,8 +1,14 @@
 const formConvertElement = document.getElementById("form-converter");
+// const formConvertElement = document.getElementById("form-converter");
 
 const outputSymbolElement = document.getElementById("output-symbol");
+// const outputSymbolElement = document.getElementById("output-symbol");
+
 const outputAmountElement = document.getElementById("output-amount");
+// const outputAmountElement = document.getElementById("output-amount");
+
 const outputResultElement = document.getElementById("output-result");
+// const outputResultElement = document.getElementById("output-result");
 
 async function convertCurrency({ amount, symbol }) {
   // amount ? symbol ?
