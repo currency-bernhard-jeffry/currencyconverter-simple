@@ -5,12 +5,13 @@ const outputAmountElement = document.getElementById("output-amount");
 const outputResultElement = document.getElementById("output-result");
 
 async function convertCurrency({ amount, symbol }) {
-  const symbolFrom = symbol.substring(0, 3);
+  // amount ? symbol ?
+  const symbolFrom = symbol.substring(0, 3); //symbol dari sini
   const symbolTo = symbol.substring(symbol.length - 3);
 
   const url = `https://api.exchangerate.host/convert?from=${symbolFrom}&to=${symbolTo}`;
-  const response = await fetch(url);
-  const data = await response.json();
+  const response = await fetch(url); // fetch dari url dimasukkan menjadi variabel response
+  const data = await response.json(); // response dijadikan json lalu dimasukkan ke variabel data
 
   const result = amount * data.result;
   const resultFixed = Number.parseFloat(result).toFixed(2);
@@ -18,6 +19,7 @@ async function convertCurrency({ amount, symbol }) {
   return resultFixed;
 }
 
+// ini event ketika submit
 formConvertElement.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -26,7 +28,7 @@ formConvertElement.addEventListener("submit", async (event) => {
   const amount = Number(formData.get("amount"));
   const from = formData.get("from");
   const to = formData.get("to");
-  const symbol = `${from}/${to}`;
+  const symbol = `${from}/${to}`; // symbol ini nanti disubstring ke symbolFrom
 
   const result = await convertCurrency({ amount, symbol });
 
