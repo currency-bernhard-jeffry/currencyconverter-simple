@@ -4,7 +4,7 @@ const getInputElementId = document.getElementById("input-field");
 const getOutputElementId = document.getElementById("output-field");
 const rateCheck = document.getElementById("check-rate");
 const fetchUrlCheck = document.getElementById("check-fetch-url");
-// const submitButton = document.getElementById("button-submit");
+// const submitButton = document.getElementById("button-submit"); <- not necessary within a form
 
 const buttonGetApi = document.getElementById("button-get-api");
 
