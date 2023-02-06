@@ -18,8 +18,11 @@ inputForm.addEventListener("submit", (event) => {
 });
 
 // function to get api
-buttonGetApi.addEventListener("click", async (event) => {
+buttonGetApi.addEventListener("click", () => {
   const url = `https://api.exchangerate.host/convert?from=SGD&to=IDR`;
-  const response = await fetch(url);
+  const response = fetch(url)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+
   console.log(response);
 });
