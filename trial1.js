@@ -6,6 +6,8 @@ const rateCheck = document.getElementById("check-rate");
 const fetchUrlCheck = document.getElementById("check-fetch-url");
 // const submitButton = document.getElementById("button-submit");
 
+const buttonGetApi = document.getElementById("button-get-api");
+
 // will be inside a function
 inputForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -16,6 +18,8 @@ inputForm.addEventListener("submit", (event) => {
 });
 
 // function to get api
-const url = `https://api.exchangerate.host/convert?from=SGD&to=IDR`;
-const response = fetch(url);
-console.log(response);
+buttonGetApi.addEventListener("click", (event) => {
+  const url = `https://api.exchangerate.host/convert?from=SGD&to=IDR`;
+  const response = fetch(url);
+  console.log(response);
+});
