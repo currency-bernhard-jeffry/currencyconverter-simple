@@ -18,7 +18,6 @@
             <button type="submit" id="button-submit">Count</button>
           </div>
         </form>
-        <button type="button" id="button-get-api">Get API</button>
       </section>
       <section>
         <div>
@@ -26,11 +25,22 @@
         </div>
       </section>
     </main>
-    <footer>
+    <section>
+      <label for="from-currency-select">From: </label
+      ><select name="from-currency" id="from-currency-select">
+        <option value="">--Choose currency</option>
+      </select>
+      <label for="to-currency-select">To: </label
+      ><select name="to-currency" id="to-currency-select">
+        <option value="">--Choose currency</option>
+      </select>
+    </section>
+    <section>
       <div id="check-rate"></div>
+      <button type="button" id="button-get-api">Get API</button>
       <p>Get API:</p>
       <div id="check-fetch-url"></div>
-    </footer>
+    </section>
     <script src="trial1.js"></script>
   </body>
 </html>

@@ -26,14 +26,13 @@ buttonGetApi.addEventListener("click", async () => {
   const response = await fetch(url);
   // .then((response) => response.json())
   // .then((data) => console.log(data));
-  const data = response.json();
-  console.log(response);
+  const data = await response.json();
+  // console.log(response);
+  // console.log(response.query);
   // console.log(data);
-  console.log(response.query);
-  // responseEntireApi.innerText = data;
+  // console.log(data.query);
+  // console.log(data.query.from);
+  // console.log(data.query.to);
+  // console.log(data.result.toFixed(2));
+  responseEntireApi.innerText = `Live Rate = ${data.result.toFixed(2)}`;
 });
-
-// const todoWithMap = todos.map(function (todo) {
-//   return todo.text;
-// });
-// console.log(todoWithMap);
