@@ -18,8 +18,12 @@ async function convertCurrency({ amount, symbol }) {
   const url = `https://api.exchangerate.host/convert?from=${symbolFrom}&to=${symbolTo}`;
   const response = await fetch(url); // fetch dari url dimasukkan menjadi variabel response
   const data = await response.json(); // response dijadikan json lalu dimasukkan ke variabel data
+  // ini aslinya:
+  //  const response = fetch(url)
+  //    .then((response) => response.json())
+  //    .then((data) => console.log(data));
 
-  const result = amount * data.result;
+  const result = amount * data.result; // data.result itu dari JSON object-nya
   const resultFixed = Number.parseFloat(result).toFixed(2);
 
   return resultFixed;
