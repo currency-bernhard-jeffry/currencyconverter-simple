@@ -8,19 +8,23 @@ const fetchUrlCheck = document.getElementById("check-fetch-url");
 
 const buttonGetApi = document.getElementById("button-get-api");
 
-const responseEntireApi = document.getElementById("check-fetch-url");
+const liveRate = document.getElementById("live-rate");
 
 // will be inside a function
-inputForm.addEventListener("submit", (event) => {
+inputForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const rate = 11500;
-  const output = Number(getInputElementId.value * rate);
+  const urlLive = "https://api.exchangerate.host/convert?from=SGD&to=IDR";
+  const response = await fetch(urlLive);
+  const data = await response.json();
+  const liveRate = data.result.toFixed(2);
+  // const rate = 11500;
+  const output = Number(getInputElementId.value * liveRate);
   getOutputElementId.innerText =
     getInputElementId.value + " SGD = " + output + " IDR";
-  rateCheck.innerText = `1 SGD = ${rate} IDR`;
+  rateCheck.innerText = `1 SGD = ${liveRate} IDR`;
 });
 
-// function to get api
+// test function to get API data (only applied to the optional 'Get API' button)
 buttonGetApi.addEventListener("click", async () => {
   const url = `https://api.exchangerate.host/convert?from=SGD&to=IDR`;
   const response = await fetch(url);
@@ -34,5 +38,5 @@ buttonGetApi.addEventListener("click", async () => {
   // console.log(data.query.from);
   // console.log(data.query.to);
   // console.log(data.result.toFixed(2));
-  responseEntireApi.innerText = `Live Rate = ${data.result.toFixed(2)}`;
+  liveRate.innerText = `Live Rate = ${data.result.toFixed(2)}`;
 });
