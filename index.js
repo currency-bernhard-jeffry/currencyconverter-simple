@@ -31,7 +31,7 @@ formConvertElement.addEventListener("submit", async (event) => {
 
   const formData = new FormData(formConvertElement);
 
-  const amount = Number(formData.get("amount"));
+  const amount = Number(formData.get("amount")); // amount dari sini
   const from = formData.get("from");
   const to = formData.get("to");
   const symbol = `${from}/${to}`; // symbol ini nanti disubstring ke symbolFrom
