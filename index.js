@@ -25,6 +25,7 @@ async function convertCurrency({ amount, symbol }) {
   return resultFixed;
 }
 
+// this is first function
 // ini event ketika submit
 formConvertElement.addEventListener("submit", async (event) => {
   event.preventDefault();
