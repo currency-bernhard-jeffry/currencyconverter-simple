@@ -53,4 +53,12 @@ buttonGetApi.addEventListener("click", async () => {
   const dataSymbols = await response.json();
   const symbolsCode = dataSymbols.symbols;
   console.log(symbolsCode);
+  console.log(symbolsCode.description);
+  console.log(symbolsCode.code);
+  console.log(symbolsCode[0]);
+  console.log(symbolsCode[1]);
+  const symbolsCodeParsed = JSON.parse(symbolsCode);
+  console.log(symbolsCodeParsed);
+
+  // symbolsCode.forEach((symbol) => console.log(symbolsCode.code));
 });
