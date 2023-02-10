@@ -33,11 +33,17 @@ buttonGetApi.addEventListener("click", async () => {
   const response = await fetch(symbolsUrl);
   const dataSymbols = await response.json();
   const symbolsCode = dataSymbols.symbols;
+  const symbolsCodeStringified = JSON.stringify(symbolsCode);
+  const symbolsCodeStringifiedArray = [symbolsCodeStringified];
   console.log(symbolsCode);
-  console.log(symbolsCode.description);
-  console.log(symbolsCode.code);
-  console.log(symbolsCode[0]);
-  console.log(symbolsCode[1]);
-  const symbolsCodeParsed = JSON.parse(symbolsCode);
-  console.log(symbolsCodeParsed);
+  console.log(Array.isArray(symbolsCode));
+  console.log(symbolsCodeStringified);
+  console.log(symbolsCodeStringifiedArray.code);
+  console.log(symbolsCode.AED.code);
+  console.log(symbolsCode.AED.description);
 });
+
+/* ALL: {
+    "description": "Albanian Lek",
+    "code": "ALL"
+} */
