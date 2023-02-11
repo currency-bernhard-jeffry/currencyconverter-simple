@@ -33,14 +33,23 @@ buttonGetApi.addEventListener("click", async () => {
   const response = await fetch(symbolsUrl);
   const dataSymbols = await response.json();
   const symbolsCode = dataSymbols.symbols;
+  console.log(symbolsCode.length);
+  const keys = Object.keys(symbolsCode);
+  console.log(keys);
+  console.log(keys.length);
+  for (i = 1; i < keys.length; i++) {
+    console.log(`Currency = ${keys[i]}`);
+    const addSymbolsCodeIntoDropdown = document.createElement("option");
+    document.select.appendChild(keys[i]);
+  }
   const symbolsCodeStringified = JSON.stringify(symbolsCode);
-  const symbolsCodeStringifiedArray = [symbolsCodeStringified];
-  console.log(symbolsCode);
-  console.log(Array.isArray(symbolsCode));
-  console.log(symbolsCodeStringified);
-  console.log(symbolsCodeStringifiedArray.code);
-  console.log(symbolsCode.AED.code);
-  console.log(symbolsCode.AED.description);
+  // const symbolsCodeStringifiedArray = [symbolsCodeStringified];
+  // console.log(symbolsCode);
+  // console.log(Array.isArray(symbolsCode));
+  // console.log(symbolsCodeStringified);
+  // console.log(symbolsCodeStringifiedArray.code);
+  // console.log(symbolsCode.AED.code);
+  // console.log(symbolsCode.AED.description);
 });
 
 /* ALL: {
